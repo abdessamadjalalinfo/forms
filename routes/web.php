@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Mail;
+use App\Models\Matche;
+
 
 
 /*
@@ -30,4 +32,6 @@ Route::get('/mail',function()
         'body' => 'test'
     ];
     Mail::to('a.jalal@enim.ac.ma')->send(new \App\Mail\MyTestMail($details));
+    $matches=Matche::all();
+    dd($matches);
 });

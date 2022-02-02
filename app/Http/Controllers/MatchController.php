@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Match;
+use App\Models\Matche;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -13,7 +13,7 @@ class MatchController extends Controller
     {
         
         $colors = preg_split('/(?=[A-Z])/',$request->color);
-        $matches=Match::all()->where('pet',$request->pet)->where('race',$request->race);
+        $matches=Matche::all()->where('pet',$request->pet)->where('race',$request->race);
         //return $matches;
         foreach($matches as $match)
         {
