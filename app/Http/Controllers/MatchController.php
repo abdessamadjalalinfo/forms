@@ -11,24 +11,28 @@ class MatchController extends Controller
 {
     public function match(Request $request)
     {
-        
-        $colors = preg_split('/(?=[A-Z])/',$request->color);
-        $matches=Matche::all()->where('pet',$request->pet)->where('race',$request->race);
-        //return $matches;
-        foreach($matches as $match)
+  $matches=Matche::all()->where('pet',$request->pet)->where('race',$request->race);
+        if($request->color){
+            $matches=$matches->whereIn('color',$request->color);
+        }
+       foreach($matches as $match)
         {
-            if(in_array($request->features[0],explode(",",strtoupper($match->features))))
-            {
-                $details = [
-                    'title' => 'About you question',
-                    'body' =>'test1',
+               $details = [
+                    'pet' => $request->pet,
+                    'race' =>$request->race,
+                    'colors' =>implode($request->color ?? ["empty"]),
+                    'features' =>implode($request->features ?? ["empty"]),
+                    'adult' =>implode($request->adult ??["empty"]),
+                    'child' =>implode($request->child ?? ["empty"]),
+                    'startdate' =>$request->startdate,
+                    'enddate' =>$request->enddate,
+                    'comment' =>$request->comment,
+                    
                 ];
                 Mail::to($match->email)->send(new \App\Mail\MyTestMail($details));
-                return $match;
-            }
-            
+                   
         }
-        
-       //return $request->features;
+        return $matches; 
+
     }
 }

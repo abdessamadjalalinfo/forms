@@ -98,8 +98,8 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
                               
                             </div>
                           </div>
-                          <div class="col-md-7">
-                            <div class="form-group">
+                          <div class="col-md-7"  >
+                            <div class="form-group" >
                               <h1 for="lastName3">
                                 CHOOSE RACE :
                                 <span class="danger">*</span>
@@ -107,28 +107,28 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
                               <select class="custom-select form-control required" id="race" name="race">
                                 <option value="">Select Race</option>
                                 <option selected value="pitbull">Pitbull</option>
-                                <option value="european dog">European Dog</option>
+                                <option value="ASIANDOG">Asian Dog</option>
                                 
                               </select>
                             </div>
                           </div>
                         </div>
                         <div class="row">
-                          <div class="col-md-7">
-                            <div class="form-group">
+                          <div class="col-md-7" id="tesla">
+                            
+                            <div class="form-group" id="tes">
                               <h1 for="emailAddress5">
                                 WOULD YOU LIKE TO CHOOSE THE COLOR OF YOUR CAT ?
                                 <span class="danger">Optionnel</span>
                               </h1>
                               
-                              <select class="select2 form-control" name="color" multiple="multiple">
-                                <optgroup label="Choose the Color">
-                                  <option value="red ">Red</option>
-                                  <option value="black ">Black</option>
-                                  <option value="white ">White</option>
-                                </optgroup>
-                               
+                              <select class="custom-select form-control required" id="answer" name="answer">
+                                <option value="yes">Yes</option>
+                                <option selected value="no">No</option>        
                               </select>
+                              <div id="colors">
+
+                              </div>
                               
                             </div>
                           </div>
@@ -172,14 +172,14 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
                                 Start Date   :
                                 <span class="danger">*</span>
                               </h1>
-                              <input type="date" class="form-control " id="startdate" name="startdate">
+                              <input type="date" class="form-control required " id="startdate" name="startdate">
                             </div>
                             <div class="form-group">
                                 <h1 for="proposalTitle3">
                                   End Date   :
                                   <span class="danger">*</span>
                                 </h1>
-                                <input type="date" class="form-control " id="enddate" name="enddate">
+                                <input type="date" class="form-control required " id="enddate" name="enddate">
                               </div>
                         </div>
                             <div class="col-md-6">
@@ -189,7 +189,7 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
                                       Budget  :
                                       <span class="danger">*</span>
                                     </h1>
-                                    <input type="text" class="form-control " id="budget" name="budget">
+                                    <input type="text" class="form-control required " id="budget" name="budget">
                                   </div>
                             </div>
                             
@@ -202,33 +202,46 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
                             
                                 <div class="form-group">
                                   <h5 for="shortDescription3">FAMILY COMPOSITION :</label> 
-                                  <script>
-                                    var counter = 1;
-                                    var dynamicInput = [];
-                                    
-                                    function addInput(){
-                                        var newdiv = document.createElement('div');
-                                        newdiv.id = dynamicInput[counter];
-                                        newdiv.innerHTML = "Children's age/Adult's age "  + " <br><input class='adult form-control'  placeholder='age'   class='form-control' type='number' name='myInputs[]'>  <input class='btn btn-danger' type='button' value='-' onClick='removeInput("+dynamicInput[counter]+");'>";
-                                        document.getElementById('adult').appendChild(newdiv);
-                                        counter++;
-                                    }
-                                      
-                                      function removeInput(id){
-                                        var elem = document.getElementById(id);
-                                        return elem.parentNode.removeChild(elem);
-                                      }
-                                    </script>
-                                    
-                                  <div class="row">
-                                  <div class="col-5" id="adult">
-                                    <div id="dynamicInput[0]">
-                                        Children's age/Adult's age <br><input  class="adult form-control" placeholder='age' class="form-control" type="number" name="myInputs[]"> 
-                                        <button style="margin-top: 3px;" class="btn btn-success" type="button" value="+" onClick="addInput();"><i class="fas fa-user-plus"></i> </button>
-                                    </div>
-                                  </div>
+                                   <div class="row">
+
+                                    <div class="col-3">
+                                      <div class="card-body">
+                                        <div class="card-block ">
+                                        <h3>Adult</h3>
+                                          <fieldset>
+                                            <div class="input-group">
+                                              <input type="text" id="nbadult" class="touchspin" value="0" data-bts-button-down-class="btn btn-link"
+                                              data-bts-button-up-class="btn btn-link" />
+                                            </div>
+                                          </fieldset>
+                                        </div>
+                                        <div class="classadult">
+
+                                        </div>
+                                      </div>
+                                     
+                                     </div>
                                   
-                                </div>
+                                     <div class="col-3">
+                                      <div class="card-body">
+                                        <div class="card-block">
+                                          <h3>Childreens</h3>
+                                          <fieldset>
+                                            <div class="input-group">
+                                              <input type="text"  id="nbchild" class="touchspin" value="0" data-bts-button-down-class="btn btn-link"
+                                              data-bts-button-up-class="btn btn-link" />
+                                            </div>
+                                          </fieldset>
+                                        </div>
+                                        <div class="classchild">
+
+                                        </div>
+                                      </div>
+                                     </div>
+                                   </div>
+                                  
+                                    
+                                 
                                   
 
 
@@ -252,8 +265,8 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
                             </div>
                             <div>
                                 <h6 >
-                                    <input type="checkbox" >
-                                    I agree :
+                                    <input type="checkbox"  >
+                                    I accept the General Conditions :
                                     <span class="danger">*</span>
                                   </h6>
                                 
@@ -282,11 +295,59 @@ data-open="click" data-menu="vertical-menu" data-col="2-columns">
   
 
   <script>
+$('#race').change(function(){
+  document.querySelector('#answer').value = 'no';
+  $('#colors').empty();
+});
+
+$('#answer').change(function(){
+  
+  if($('#answer').val()=='yes')
+  {
+    if($('#race').val()=='pitbull')
+    {
+      $('#colors').empty();
+      $('#colors').append("<div style='font-size: 20px;'  class='form-check form-switch'><input class='form-check-input theclass' name='color[]' value='black' type='checkbox' id='flexSwitchCheckChecked' checked ><label class='form-check-label' for='flexSwitchCheckChecked'>black pitbull</label></div>");
+      $('#colors').append("<div style='font-size: 20px;'   class='form-check form-switch'><input class='form-check-input theclass' name='color[]' value='red' type='checkbox' id='flexSwitchCheckChecked' ><label class='form-check-label' for='flexSwitchCheckChecked'>red Pitbull</label></div>");
+    }
+    if($('#race').val()=="ASIANDOG")
+    {
+     
+      $('#colors').empty();
+      $('#colors').append("<div style='font-size: 20px;'  class='form-check form-switch'><input class='form-check-input theclass' name='color[]' value='black' type='checkbox' id='flexSwitchCheckChecked' checked ><label class='form-check-label' for='flexSwitchCheckChecked'>Black  Dog</label></div>");
+      $('#colors').append("<div style='font-size: 20px;'   class='form-check form-switch'><input class='form-check-input theclass' name='color[]' value='yellow' type='checkbox' id='flexSwitchCheckChecked' ><label class='form-check-label' for='flexSwitchCheckChecked'>Yellow Dog</label></div>");
+    }
+    if($('#race').val()=='asianbird')
+    {
+      $('#colors').empty();
+      $('#colors').append("<div style='font-size: 20px;'  class='form-check form-switch'><input class='form-check-input theclass' name='color[]' value='black' type='checkbox' id='flexSwitchCheckChecked' checked ><label class='form-check-label' for='flexSwitchCheckChecked'>Black  Bird</label></div>");
+      $('#colors').append("<div style='font-size: 20px;'   class='form-check form-switch'><input class='form-check-input theclass' name='color[]' value='gris' type='checkbox' id='flexSwitchCheckChecked' ><label class='form-check-label' for='flexSwitchCheckChecked'>Gris Bird</label></div>");
+    }
+    if($('#race').val()=='EUROPEANCAT')
+    {
+      $('#colors').empty();
+      $('#colors').append("<div style='font-size: 20px;'  class='form-check form-switch'><input class='form-check-input theclass' name='color[]' value='white' type='checkbox' id='flexSwitchCheckChecked' checked ><label class='form-check-label' for='flexSwitchCheckChecked'>White  Cat</label></div>");
+      $('#colors').append("<div style='font-size: 20px;'   class='form-check form-switch'><input class='form-check-input theclass' name='color[]' value='gris' type='checkbox' id='flexSwitchCheckChecked' ><label class='form-check-label' for='flexSwitchCheckChecked'>Gris </label></div>");
+    }
+    if($('#race').val()=='ASIAN CAT')
+    {
+      $('#colors').empty();
+      $('#colors').append("<div style='font-size: 20px;'  class='form-check form-switch'><input class='form-check-input theclass' name='color[]' value='white' type='checkbox' id='flexSwitchCheckChecked' checked ><label class='form-check-label' for='flexSwitchCheckChecked'>White  </label></div>");
+      $('#colors').append("<div style='font-size: 20px;'   class='form-check form-switch'><input class='form-check-input theclass' name='color[]' value='Black' type='checkbox' id='flexSwitchCheckChecked' ><label class='form-check-label' for='flexSwitchCheckChecked'>Black </label></div>");
+    }
+    
 
 
-
+  }
+ else {
+  $('#colors').empty();
+ }
+ 
+})
 
 $('.pet:checkbox').change(function() {
+  $('#colors').empty();
+  document.querySelector('#answer').value = 'no';
 if($('.pet:checked').val()=="bird")
 {
     $('#race')
@@ -321,8 +382,8 @@ if($('.pet:checked').val()=="dog")
     $('#race')
     .find('option')
     .end()
-    .append('<option value="ASIAN DOG"> ASIAN DOG</option>')
-    .val('ASIAN DOG');
+    .append('<option value="ASIANDOG"> ASIAN DOG</option>')
+    .val('ASIANDOG');
 }
 
 }); 
@@ -331,9 +392,24 @@ if($('.pet:checked').val()=="dog")
 
 
 <script>
-$('.adult').on('click', function(){alert(1);});
+  
+  $('input[id = nbadult]').change(function(){
+    max=parseInt($('input[id = nbadult]').val());
+    $('.classadult').empty();
+   for (let i=0;i<max;i++)
+   {
+    $('.classadult').append("<br> <input  class='adult form-control required' placeholder='age of adult' class='form-control' type='number' name='adult[]'> ");
+   }
+  });
 
-
+  $('input[id = nbchild]').change(function(){
+    max=parseInt($('input[id = nbchild]').val());
+    $('.classchild').empty();
+   for (let i=0;i<max;i++)
+   {
+    $('.classchild').append("<br> <input  class='child form-control required' placeholder='Age of Child' class='form-control' type='number' name='child[]'> ");
+   }
+  })
 </script>
 </body>
 </html>

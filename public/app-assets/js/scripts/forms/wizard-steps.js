@@ -86,8 +86,22 @@ $(".steps-validation").steps({
         alert("testing!");
         var pet = $('.pet:checked').val();
         var race =($('#race').val());
-        var color=$('.select2').find(":selected").text();
+        var color=document.querySelectorAll('input.theclass:checked');
+        var colors=[];
+        var i=0;
+        for(i=0;i<color.length;i++)
+        {
+        colors.push(color[i].value);
+        }
         
+        var child=[];
+        for(i=0;i<$('.child').length;i++)
+        {
+        child.push($('.child')[i].value);
+        }
+        
+
+         
         var features=[];
         var startdate=($('#startdate').val());
         var enddate=($('#enddate').val());
@@ -104,8 +118,9 @@ $(".steps-validation").steps({
         {
         adult.push($('.adult')[i].value);
         }
-        console.log(features);
-        console.log(adult);
+        
+     
+           
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -115,8 +130,9 @@ $(".steps-validation").steps({
         $.ajax({
             type:'get',
             url:"/match",
-            data:{pet:pet, race:race, color:color,features:features,startdate:startdate,enddate:enddate,budget:budget,
+            data:{pet:pet, race:race, color:colors,features:features,startdate:startdate,enddate:enddate,budget:budget,
             adult:adult,
+            child:child,
             comment:comment
             },
             success:function(data){
