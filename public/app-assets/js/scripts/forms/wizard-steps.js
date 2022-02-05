@@ -129,7 +129,7 @@ $(".steps-validation").steps({
 
         $.ajax({
             type:'get',
-            url:"/match",
+            url:"/public/match",
             data:{pet:pet, race:race, color:colors,features:features,startdate:startdate,enddate:enddate,budget:budget,
             adult:adult,
             child:child,
