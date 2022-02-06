@@ -411,5 +411,14 @@ if($('.pet:checked').val()=="dog")
    }
   })
 </script>
+
+<script>
+
+$('#startdate').change(function(){
+  var input = document.getElementById("enddate");
+    input.setAttribute("min", $('#startdate').val());
+
+});
+</script>
 </body>
 </html>
